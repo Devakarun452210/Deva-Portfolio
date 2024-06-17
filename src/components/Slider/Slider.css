@@ -1,0 +1,71 @@
+.sliderContainer {
+  width: 100%;
+  background-image: url(../../assets/pngbg.jpg);
+  /* background-repeat: no-repeat; */
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0px;
+}
+.ReactSlider{
+  height: 550px;
+}
+
+.slider {
+  width: 550px;
+}
+
+.textOverlay {
+  position: absolute;
+  bottom: 190px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white; /* Adjust color as needed */
+  z-index: 2; /* Ensure it is above the slider */
+}
+
+.textOverlay h1 {
+  color: var( --color-black);
+  margin: 0; /* Remove default margins */
+  padding: 5px 0; /* Add some padding for spacing */
+}
+
+.textOverlay h1 {
+  font-size: 2em; /* Adjust font size as needed */
+}
+
+@media screen and (max-width: 600px) {
+  .ReactSlider{
+    height: 450px;
+  }
+
+  .slider {
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .ReactSlider{
+    height: 350px;
+  }
+
+  .slider {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .ReactSlider{
+    height: 300px;
+  }
+
+  .slider {
+    width: 300px;
+  }
+
+  .sliderContainer {
+    padding: 30px 0px;
+  }
+}
