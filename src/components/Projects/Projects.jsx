@@ -5,14 +5,26 @@ import "./Projects.css";
 
 const ProjectTabs = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [visibleProjects, setVisibleProjects] = useState(8);
 
   const changeCategory = (category) => {
     setActiveCategory(category);
+    setVisibleProjects(8); // Reset visible projects when category changes
+  };
+
+  const loadMoreProjects = () => {
+    setVisibleProjects((prevVisibleProjects) => prevVisibleProjects + 8);
+  };
+
+  const viewLessProjects = () => {
+    setVisibleProjects(8);
   };
 
   const filteredProjects = projects.filter(
     (project) => activeCategory === "All" || project.cat === activeCategory
   );
+
+  const displayedProjects = filteredProjects.slice(0, visibleProjects);
 
   return (
     <div className="container">
@@ -40,7 +52,7 @@ const ProjectTabs = () => {
       </div>
 
       <div className="projects">
-        {filteredProjects.map((project) => (
+        {displayedProjects.map((project) => (
           <div key={project.id} className="project">
             <img className="projectImg" src={project.img} alt={project.title} />
             <div className="content">
@@ -59,6 +71,18 @@ const ProjectTabs = () => {
           </div>
         ))}
       </div>
+
+      {visibleProjects < filteredProjects.length ? (
+        <button className="viewMoreButton" onClick={loadMoreProjects}>
+          View More
+        </button>
+      ) : (
+        filteredProjects.length > 8 && (
+          <button className="viewMoreButton" onClick={viewLessProjects}>
+            View Less
+          </button>
+        )
+      )}
     </div>
   );
 };

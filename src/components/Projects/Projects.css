@@ -137,6 +137,25 @@
   background-color: #765bd6;
 }
 
+.viewMoreButton {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 30px;
+  outline: 1px solid #fff;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto; /* Center the button */
+}
+
+.viewMoreButton:hover {
+  background-color: #151414;
+}
+
 
 @media screen and (min-width: 1011px) and (max-width: 1380px) {
   .project {
